@@ -10,7 +10,28 @@ namespace DotnetStarter.Logic.Tests
         public void AcceptanceTest()
         {
             string contents = File.ReadAllText("../../../caroline.txt");
-            Assert.Equal(0, HelloWorld.CaloriesInBiggestFoodBag(contents));
+            Assert.Equal(70764, HelloWorld.CaloriesInBiggest3FoodBags(contents));
+        }
+
+        [Fact]
+        public void ExampleInputFinalTest2()
+        {
+            var exampleInput = @"1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000";
+            int mostCalories = HelloWorld.CaloriesInBiggest3FoodBags(exampleInput);
+            Assert.Equal(45000, mostCalories);
         }
 
         [Fact]

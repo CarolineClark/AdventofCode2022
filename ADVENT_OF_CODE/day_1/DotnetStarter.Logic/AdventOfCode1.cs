@@ -8,6 +8,22 @@ namespace DotnetStarter.Logic
     {
         public static string Hello() => "World!";
 
+        public static int CaloriesInBiggest3FoodBags(string exampleInput)
+        {
+            var foodbags = ToFoodBags(exampleInput);
+            var list = foodbags.Select(delegate(FoodBag f)
+            {
+                int sum = 0;
+                foreach (var foodItem in f.calories)
+                {
+                    sum += foodItem;
+                }
+
+                return sum;
+            }).OrderByDescending(o=>o).ToList();
+            return list[0] +list[1]+list[2];
+        }
+
         public static int CaloriesInBiggestFoodBag(string exampleInput)
         {
             var foodbags = ToFoodBags(exampleInput);
